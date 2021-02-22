@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        input { 
+            color: black; 
+            width:100% 
+        } 
+    </style>
+    <script>
+        var M;
+
+        function plusminus(){
+            if (calculator.display.value.startsWith("-")){
+                calculator.display.value = calculator.display.value.replace(/^\-/, "")
+            }
+            else{
+                calculator.display.value = "-" + calculator.display.value
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <form name="calculator">
+        <table >
+            <tr>
+                <th colspan="5"><input name="display" disabled></th>
+            </tr>
+            <tr>
+                <th><input type="button" value="MC" onclick="window.M = 0"></th>
+                <th><input type="button" value="1"  onclick="calculator.display.value += '1'"></th>
+                <th><input type="button" value="2"  onclick="calculator.display.value += '2'"></th>
+                <th><input type="button" value="3"  onclick="calculator.display.value += '3'"></th>
+                <th><input type="button" value="+"  onclick="calculator.display.value += '+'"></th>
+            </tr>
+            <tr>
+                <th><input type="button" value="MS" onclick="window.M = eval(calculator.display.value)"></th>
+                <th><input type="button" value="4"  onclick="calculator.display.value += '4'"></th>
+                <th><input type="button" value="5"  onclick="calculator.display.value += '5'"></th>
+                <th><input type="button" value="6"  onclick="calculator.display.value += '6'"></th>
+                <th><input type="button" value="-"  onclick="calculator.display.value += '-'"></th>
+            </tr>
+            <tr>
+                <th><input type="button" value="MR" onclick="calculator.display.value = window.M"></th>
+                <th><input type="button" value="7"  onclick="calculator.display.value += '7'"></th>
+                <th><input type="button" value="8"  onclick="calculator.display.value += '8'"></th>
+                <th><input type="button" value="9"  onclick="calculator.display.value += '9'"></th>
+                <th><input type="button" value="x"  onclick="calculator.display.value += '*'"></th>
+            </tr>
+            <tr>
+                <th><input type="button" value="M+" onclick="calculator.display.value = window.M + eval(calculator.display.value)"></th>
+                <th><input type="button" value="+-" onclick="plusminus()"></th>
+                <th><input type="button" value="0"  onclick="calculator.display.value += '0'"></th>
+                <th><input type="button" value="="  onclick="calculator.display.value = eval(calculator.display.value)"></th>
+                <th><input type="button" value="/"  onclick="calculator.display.value += '/'"></th>
+            </tr>
+            <tr>
+                <th><input type="button" value="1/x" onclick="calculator.display.value = 1/eval(calculator.display.value)"></th>
+                <th><input type="button" value="."   onclick="calculator.display.value += '.0'"></th>
+                <th><input type="button" value="x^2" onclick="calculator.display.value = eval(calculator.display.value)**2"></th>
+                <th><input type="button" value="√"   onclick="calculator.display.value = eval(calculator.display.value)**(1/2)"></th>
+                <th><input type="button" value="c"   onclick="calculator.display.value = ''"></th>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
